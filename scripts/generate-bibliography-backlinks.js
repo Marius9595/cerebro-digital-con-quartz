@@ -1,11 +1,18 @@
 // Script para sobrescribir los archivos de BIBLIOGRAPHY con sus backlinks
 // Ejecutar con: node scripts/generate-bibliography-backlinks.js
 
-const fs = require('fs');
-const path = require('path');
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 const BIBLIOGRAPHY_DIR = path.join(__dirname, '../content/BIBLIOGRAPHY');
 const CONTENT_DIR = path.join(__dirname, '../content');
+
 
 function getAllMarkdownFiles(dir) {
   let results = [];
@@ -22,6 +29,7 @@ function getAllMarkdownFiles(dir) {
   return results;
 }
 
+
 function getBacklinks(targetName, allFiles) {
   const backlinks = [];
   const wikilink = `[[${targetName}]]`;
@@ -36,6 +44,7 @@ function getBacklinks(targetName, allFiles) {
   });
   return backlinks;
 }
+
 
 function processBibliography() {
   const bibFiles = getAllMarkdownFiles(BIBLIOGRAPHY_DIR);
