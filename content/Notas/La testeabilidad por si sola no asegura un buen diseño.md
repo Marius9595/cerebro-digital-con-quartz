@@ -13,7 +13,7 @@ num_veces_leida: 0
 
 Aquí se observa, que las dos últimas lineas son las que dan valor. El resto son elementos introducidos simplete y llanamente para hacer el software mas testeable ([[Dependency injection]], Creación de interfaces... etc).  Esto quiere decir, que para hacer testing necesitamos tirar de polimorfismo para crear [[Dobles de tests]] y que permitan comprobar toda la funcionalidad.
 
-Sin embargo, [[Mark Seeman]] muestra con diseño con [[Programación Funcional]] se obtiene un diseño más fácil con la misma testeabilidad. Pero en este caso la dependencia solo necesita de que se inyecte una función que cumpla con el contrato (no está ligada a una clase o interfaz):
+Sin embargo, [[Mark Seeman]] muestra con diseño con [[Programación funcional]] se obtiene un diseño más fácil con la misma testeabilidad. Pero en este caso la dependencia solo necesita de que se inyecte una función que cumpla con el contrato (no está ligada a una clase o interfaz):
 
 ![[Pasted image 20250722015349.png]]
 

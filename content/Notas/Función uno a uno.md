@@ -11,5 +11,5 @@ aliases:
 ---
 ## ¿Qué es?
 
-Es una [[función]] en la que ningún par de elementos del [[Dominio de una función|dominio]] se asigna al mismo elemento en el [[Codominio de una función|codiminio]].
+Es una [[Función]] en la que ningún par de elementos del [[Dominio de una función|dominio]] se asigna al mismo elemento en el [[Codominio de una función|codiminio]].
 

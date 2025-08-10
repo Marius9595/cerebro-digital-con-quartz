@@ -9,7 +9,7 @@ num_veces_leida: 0
 
 Son un "puente" **entre los mensajes conversacionales ( usuario y asistente) y los requisitos de formato específicos** de tu [[Modelo de Lenguaje Grande|LLM]] elegido.
 
-En otras palabras, estructuran la comunicación entre el usuario y el agente, asegurando que cada modelo—a pesar de sus [[Tokens especiales]] únicos—reciba el prompt correctamente formateado. Así como cada [[Modelo de Lenguaje Grande|LLM]]  usa su propio [[token]] EOS (End Of Sequence), también usan diferentes reglas de formato y delimitadores para los mensajes en la conversación.
+En otras palabras, estructuran la comunicación entre el usuario y el agente, asegurando que cada modelo—a pesar de sus [[Tokens especiales]] únicos—reciba el prompt correctamente formateado. Así como cada [[Modelo de Lenguaje Grande|LLM]]  usa su propio [[Token]] EOS (End Of Sequence), también usan diferentes reglas de formato y delimitadores para los mensajes en la conversación.
 
 Ejemplo:
 ``` python

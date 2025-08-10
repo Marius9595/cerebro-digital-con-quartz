@@ -11,5 +11,5 @@ aliases:
 ---
 ## ¿Qué es?
 
-Es el [[Conjunto (Teoría de conjuntos)|Conjunto]] sobre los que la [[función]] está definida. Por tanto, es necesario especificarlo para definir un función.
+Es el [[Conjunto (Teoría de conjuntos)|Conjunto]] sobre los que la [[Función]] está definida. Por tanto, es necesario especificarlo para definir un función.
 

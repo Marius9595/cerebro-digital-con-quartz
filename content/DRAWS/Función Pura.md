@@ -7,7 +7,7 @@ num_veces_leida: 0
 ---
 ## ¿Qué es?
 
-Es el ideal de una Función en un diseño  con [[Programación Funcional]]. Está se define como una Función que:
+Es el ideal de una Función en un diseño  con [[Programación funcional]]. Está se define como una Función que:
 
 * Retorna el mismo output cuando se pasan los mismos inputs siempre. Es decir, son deterministas.
 * No tiene [[Side-Effects]]. 

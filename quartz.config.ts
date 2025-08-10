@@ -26,8 +26,6 @@ const config: QuartzConfig = {
       ".obsidian",
       "copilot-custom-prompts",
       "ARTICLES",
-      "NOTES TO REVIEW",
-      "BIBLIOGRAPHY",
     ],
     defaultDateType: "modified",
     theme: {

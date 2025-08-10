@@ -7,7 +7,7 @@ num_veces_leida: 0
 ---
 ## ¿Por qué?
 
-Por el ideal o guía básica de la [[Programación Funcional]] es crear funciones puras y por tanto funciones aisladas de sus dependencias. Y si están así son testeables por definición.
+Por el ideal o guía básica de la [[Programación funcional]] es crear funciones puras y por tanto funciones aisladas de sus dependencias. Y si están así son testeables por definición.
 
 ![[Pasted image 20250722021843.png]]
 

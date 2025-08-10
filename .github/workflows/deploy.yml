@@ -26,6 +26,8 @@ jobs:
           node-version: 22
       - name: Install Dependencies
         run: npm ci
+      - name: Generate BIBLIOGRAPHY backlinks
+        run: node scripts/generate-bibliography-backlinks.js
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact

@@ -11,7 +11,7 @@ Es Un [[Modelo base]] ajustado específicamente para seguir instrucciones y part
 
 ## ¿Cómo conseguimos que un modelo base se ajuste a esto?
 
-Para hacer que un [[Modelo Base]] se comporte como un modelo de instrucción, necesitamos **formatear nuestros prompts de manera consistente para que el modelo pueda entenderlos**.
+Para hacer que un [[Modelo base]] se comporte como un modelo de instrucción, necesitamos **formatear nuestros prompts de manera consistente para que el modelo pueda entenderlos**.
 
 En este punto entran en juego las [[Plantillas de chat]]. Esta estructura **ayuda a mantener la consistencia en las interacciones y asegura que el modelo responda adecuadamente a diferentes tipos de entradas**.
 

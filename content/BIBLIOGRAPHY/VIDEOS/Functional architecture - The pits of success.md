@@ -6,6 +6,7 @@ type: CONFERENCE-TALK
 conferencia: NDC Conferences Sidney 2016
 ---
 ## Notas
+
 ```dataview
 TABLE
 minutoInicio, minutoFin
@@ -14,3 +15,4 @@ WHERE
 	contains(meta(charla).path, "Functional architecture - The pits of success")
 
 ```
+
