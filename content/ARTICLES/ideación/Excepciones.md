@@ -1,0 +1,2 @@
+- diseño por contratos
+- Cristofer episodio 8 papers

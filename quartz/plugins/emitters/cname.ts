@@ -17,6 +17,8 @@ export const CNAME: QuartzEmitterPlugin = () => ({
       )
       return []
     }
+  // Ensure output directory exists before writing
+  await fs.promises.mkdir(argv.output, { recursive: true })
     const path = joinSegments(argv.output, "CNAME")
     const content = extractDomainFromBaseUrl(cfg.configuration.baseUrl)
     if (!content) {

@@ -22,6 +22,12 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
+    // Mostrar propiedades personalizadas del frontmatter (libro, curso, video, charla)
+    Component.FrontmatterProps({
+      fields: ["libro", "curso", "video", "charla"],
+      labels: { libro: "Libro", curso: "Curso", video: "Video", charla: "Charla" },
+      inline: true,
+    }),
     Component.ContentMeta(),
     Component.TagList(),
   ],

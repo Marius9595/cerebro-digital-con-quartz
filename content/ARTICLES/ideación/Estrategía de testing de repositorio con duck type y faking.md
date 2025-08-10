@@ -1,0 +1,1 @@
+>Quiero explicar cómo puedo aplicar duck types para hacer eficiente el testing del patrón repository, además de cómo hace que un simulador sea confiable y pueda ser usado en tests de alta granularidad para hacerlos más rápidos y se mantenga la caja negra (evitando así la rígidez de los dobles de tests)

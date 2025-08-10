@@ -1,0 +1,1 @@
+Del video de 10pines vi de la segunda temporada se habrén varias cositas interesantes que se pueden hilar con clean code y código sostenible

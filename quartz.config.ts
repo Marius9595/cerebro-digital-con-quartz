@@ -8,16 +8,27 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Cerebro Digital",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    locale: "es-ES",
+  baseUrl: "cerebro-digital.mario-pinto-miranda.dev",
+    // Nota: añadimos variantes en mayúsculas para adaptarnos a carpetas del vault
+    // que podrían estar nombradas como "TEMPLATES".
+    ignorePatterns: [
+      "private",
+      "templates",
+      "TEMPLATES",
+      ".obsidian",
+      "copilot-custom-prompts",
+      "ARTICLES",
+      "NOTES TO REVIEW",
+      "BIBLIOGRAPHY",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -87,6 +98,8 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
+  // Emit CNAME file for custom domain support on GitHub Pages
+  Plugin.CNAME(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),

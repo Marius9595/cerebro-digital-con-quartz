@@ -1,0 +1,15 @@
+.frontmatter-props {
+  margin: 0.25rem 0 0.75rem 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+
+  &[data-inline="true"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  .prop-label {
+    margin-right: 0.25rem;
+  }
+}
