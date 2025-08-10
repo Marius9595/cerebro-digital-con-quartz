@@ -1,5 +1,5 @@
 ---
-libro: "[[BIBLIOGRAPHY/BOOKS/Lean UX (Product) - Libro]]"
+libro: "[[Bibliografía/Libros/Lean UX (Product) - Libro]]"
 capítulo: 0-Prefacio
 paginas: "207"
 tags: 

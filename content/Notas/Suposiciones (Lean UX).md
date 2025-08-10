@@ -1,5 +1,5 @@
 ---
-libro: "[[BIBLIOGRAPHY/BOOKS/Lean UX (Product) - Libro]]"
+libro: "[[Bibliografía/Libros/Lean UX (Product) - Libro]]"
 capítulo: 3-Driving Vision with Outcomes
 paginas: "689"
 tags: 

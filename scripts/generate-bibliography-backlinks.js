@@ -10,7 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-const BIBLIOGRAPHY_DIR = path.join(__dirname, '../content/BIBLIOGRAPHY');
+// Ruta real de la carpeta de bibliografía (con acento)
+const BIBLIOGRAPHY_DIR = path.join(__dirname, '../content/Bibliografía');
 const CONTENT_DIR = path.join(__dirname, '../content');
 
 
@@ -34,7 +35,8 @@ function getBacklinks(targetName, allFiles) {
   const backlinks = [];
   const wikilink = `[[${targetName}]]`;
   allFiles.forEach(file => {
-    if (file.includes('BIBLIOGRAPHY')) return; // No backlinks desde la propia BIBLIOGRAFÍA
+  // No backlinks desde la propia carpeta de Bibliografía
+  if (file.includes('Bibliografía')) return;
     const content = fs.readFileSync(file, 'utf8');
     if (content.includes(wikilink)) {
       // Mostrar solo el nombre relativo sin extensión
@@ -52,7 +54,8 @@ function processBibliography() {
   bibFiles.forEach(bibFile => {
     const name = path.basename(bibFile, '.md');
     const backlinks = getBacklinks(name, allFiles);
-    const output = backlinks.length ? backlinks.join('\n') : '_Sin backlinks_';
+  // Renderizar como lista en columna
+  const output = backlinks.length ? backlinks.map(b => `- ${b}`).join('\n') : '_Sin backlinks_';
     fs.writeFileSync(bibFile, output, 'utf8');
     console.log(`Procesado: ${name} (${backlinks.length} backlinks)`);
   });

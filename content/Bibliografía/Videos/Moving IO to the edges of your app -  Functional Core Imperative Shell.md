@@ -1,0 +1,1 @@
+- [[Notas/Code smells en tu código core]]

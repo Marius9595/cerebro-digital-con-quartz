@@ -1,5 +1,5 @@
 ---
-libro: "[[BIBLIOGRAPHY/BOOKS/Lean UX (Product) - Libro]]"
+libro: "[[Bibliografía/Libros/Lean UX (Product) - Libro]]"
 capítulo: "1-Lean UX: More Important Now Than Ever Before"
 paginas: 483-
 tags: 

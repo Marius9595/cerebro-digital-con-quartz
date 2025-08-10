@@ -1,0 +1,1 @@
+- [[Notas/Deuda técnica ignorable]]
