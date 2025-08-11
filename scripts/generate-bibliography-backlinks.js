@@ -66,8 +66,8 @@ function getBacklinksFor(bibFile, allFiles) {
 
 function renderBacklinksSection(backlinks) {
   const body = backlinks.length
-    ? `## Backlinks\n\n${backlinks.map(b => `- ${b}`).join('\n')}`
-    : '_Sin backlinks_'
+    ? `## Notas\n\n${backlinks.map(b => `- ${b}`).join('\n')}`
+    : '_Sin notas_'
   return `${START}\n\n${body}\n\n${END}`
 }
 
