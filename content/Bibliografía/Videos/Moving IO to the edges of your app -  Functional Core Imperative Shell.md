@@ -7,3 +7,11 @@ url: >-
 video: true
 ---
 - [[Notas/Code smells en tu código core]]
+
+<!-- backlinks:start -->
+
+## Backlinks
+
+- [[Notas/Code smells en tu código core]]
+
+<!-- backlinks:end -->
