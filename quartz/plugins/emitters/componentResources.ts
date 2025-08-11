@@ -87,25 +87,34 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
 
   if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
-    componentResources.afterDOMLoaded.push(`
-      const gtagScript = document.createElement('script');
-      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${tagId}';
-      gtagScript.defer = true;
-      gtagScript.onload = () => {
+    // Cargamos GA lo antes posible (antes de que el DOM esté listo) para minimizar pérdida de hits iniciales
+    componentResources.beforeDOMLoaded.push(`(function(){
+        const gtagScript = document.createElement('script');
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${tagId}';
+        gtagScript.async = true; // coincide con snippet oficial GA4
+        document.head.appendChild(gtagScript);
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
-        gtag('config', '${tagId}', { send_page_view: false });
-        gtag('event', 'page_view', { page_title: document.title, page_location: location.href });
-        document.addEventListener('nav', () => {
-          gtag('event', 'page_view', { page_title: document.title, page_location: location.href });
-        });
-      };
-      
-      document.head.appendChild(gtagScript);
-    `)
+        // Desactivamos el page_view automático para controlar los hits en navegación SPA
+        gtag('config', '${tagId}', { send_page_view: false, anonymize_ip: true });
+      })();`)
+    // Enviamos page_view inicial y cada navegación SPA (evento 'nav' ya emitido por Quartz)
+    componentResources.afterDOMLoaded.push(`(function(){
+        function sendPageView(){
+          if (!window.gtag) return;
+          gtag('event', 'page_view', {
+            page_title: document.title,
+            page_location: location.href,
+            page_path: location.pathname
+          });
+        }
+        // primer render
+        sendPageView();
+        // navegaciones internas SPA
+        document.addEventListener('nav', sendPageView);
+      })();`)
   } else if (cfg.analytics?.provider === "plausible") {
     const plausibleHost = cfg.analytics.host ?? "https://plausible.io"
     componentResources.afterDOMLoaded.push(`
