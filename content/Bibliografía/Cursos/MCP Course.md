@@ -1,3 +1,8 @@
+---
+plataforma: '[[Hugging Face]]'
+url: 'https://huggingface.co/learn/mcp-course/unit1/key-concepts'
+curso: true
+---
 - [[Notas/Model Context Protocol]]
 - [[Notas/problema de integración de herramientas en los agentes de IA]]
 - [[Notas/Arquitectura de un MCP]]

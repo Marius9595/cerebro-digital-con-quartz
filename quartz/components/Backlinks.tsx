@@ -32,15 +32,16 @@ export default ((opts?: Partial<BacklinksOptions>) => {
       <div class={classNames(displayClass, "backlinks")}>
         <h3>{i18n(cfg.locale).components.backlinks.title}</h3>
         <OverflowList>
-          {backlinkFiles.length > 0 ? (
-            backlinkFiles.map((f) => (
+          {backlinkFiles.length > 0 ? (<>
+            <h2>Notas:</h2>
+            {backlinkFiles.map((f) => (
               <li>
                 <a href={resolveRelative(fileData.slug!, f.slug!)} class="internal">
                   {f.frontmatter?.title}
                 </a>
               </li>
-            ))
-          ) : (
+            ))}
+          </>) : (
             <li>{i18n(cfg.locale).components.backlinks.noBacklinksFound}</li>
           )}
         </OverflowList>

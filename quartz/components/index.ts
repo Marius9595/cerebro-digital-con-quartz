@@ -24,6 +24,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import FrontmatterProps from "./FrontmatterProps"
+import BibliographyMeta from "./BibliographyMeta"
 
 export {
   ArticleTitle,
@@ -52,4 +53,5 @@ export {
   Flex,
   ConditionalRender,
   FrontmatterProps,
+  BibliographyMeta,
 }

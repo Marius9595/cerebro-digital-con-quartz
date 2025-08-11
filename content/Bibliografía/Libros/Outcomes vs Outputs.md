@@ -1,3 +1,9 @@
+---
+autores:
+  - '[[Joshua Seiden]]'
+editorial: Sense & Respond
+libro: true
+---
 - [[Notas/Los bloques de Program Model Logic]]
 - [[Notas/Gestión en función de impactos (output)]]
 - [[Notas/Gestionar por impacto]]

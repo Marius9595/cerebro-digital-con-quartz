@@ -1,3 +1,11 @@
+---
+autores:
+  - '[[Jack Widman]]'
+editorial: O' Reilly
+idioma: inglés
+titulo: Learning Functional Programming
+libro: true
+---
 - [[Notas/Funciones como objetos de primera clase]]
 - [[Notas/Función anónima]]
 - [[Notas/Función sobreyectiva]]

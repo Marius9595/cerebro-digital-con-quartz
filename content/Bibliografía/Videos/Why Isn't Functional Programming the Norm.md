@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[Richard Feldman]]'
+evento: Clojutre 2019
+url: 'https://www.youtube.com/watch?v=QyJZzq0v7Z4&t=16s'
+video: true
+---
 - [[Notas/Aplicaciones o frameworks revolucionarios hacen los lenguajes de programación, que los han construido o con las cuales se pueden utilizar, tengan una popularidad asociada a estas]]
 - [[Notas/Hay lenguajes de programación que se vuelven populares por la exclusividad en una plataforma popular]]
 - [[Notas/Los lenguajes de programación que permiten una adopción rápida (familiaridad), reutilización de código existente (fácil migración) y dan beneficios, se vuelven populares]]

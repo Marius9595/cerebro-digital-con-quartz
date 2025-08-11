@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[José Luis Fernández Vindel]]'
+  - '[[Jorge Pérez Martín]]'
+editorial: UNED
+libro: true
+---
 - [[Notas/Lenguaje Proposicional]]
 - [[Notas/Fórmula Proposicional]]
 - [[Notas/Reglas de generación de fórmulas proposicionales]]

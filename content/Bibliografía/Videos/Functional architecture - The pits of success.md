@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[Mark Seeman]]'
+evento: NDC Conferences Sidney 2016
+url: 'https://www.youtube.com/watch?v=US8QG9I1XW0'
+video: true
+---
 - [[DRAWS/Función Pura]]
 - [[Notas/Test-Induced damage]]
 - [[Notas/Trabajar en progromación funcional permite alcanzar aislamiento de dependencias y la testabilidad con menor esfuerzo]]

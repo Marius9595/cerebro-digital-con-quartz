@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[ Scott Wlaschin]]'
+evento: NDC Conferences Oslo 2020
+url: 'https://www.youtube.com/watch?v=rCKPgu4DvcE'
+video: true
+---
 - [[Notas/Guía de diseño de funciones para realizar composición]]
 - [[Notas/Una función es una  cosa  que transforma inputs en outputs]]
 - [[Notas/Una función es una  cosa  independiente (reusable) que no pertenece o está ligada a una clase]]

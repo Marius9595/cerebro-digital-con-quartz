@@ -1,3 +1,12 @@
+---
+autores:
+  - '[[Steve Freeman]]'
+  - '[[Nat Pryce]]'
+editorial: Addison-Wesley
+idioma: inglés
+titulo: 'Growing Object-Oriented Software, Guided by tests'
+libro: true
+---
 - [[ARTICLES/escritas/Una estrategia de testing para un desarrollo productivo y eficaz]]
 - [[Notas/Calidad externa del código]]
 - [[Notas/Calidad interna del código]]

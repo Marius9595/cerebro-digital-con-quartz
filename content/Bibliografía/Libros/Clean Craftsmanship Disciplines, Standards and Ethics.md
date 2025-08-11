@@ -1,3 +1,11 @@
+---
+autores:
+  - '[[Robert C. Martin]]'
+editorial: Addison-Wesley
+idioma: inglés
+titulo: 'Clean Craftsmanship Disciplines, Standards and Ethics'
+libro: true
+---
 - [[ARTICLES/escritas/Una estrategia de testing para un desarrollo productivo y eficaz]]
 - [[Notas/La artesanía es el estado del conocimiento sobre cómo hacer algo bien y es el resultado  de una buen tutela y un montón de experiencia]]
 - [[Notas/Disciplina]]

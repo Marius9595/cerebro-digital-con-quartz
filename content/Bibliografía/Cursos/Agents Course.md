@@ -1,3 +1,8 @@
+---
+plataforma: '[[Hugging Face]]'
+url: 'https://huggingface.co/learn/agents-course/unit0/introduction'
+curso: true
+---
 - [[Notas/Agente IA]]
 - [[Notas/Modelo de Lenguaje Grande]]
 - [[Notas/Tipos de Transformers]]

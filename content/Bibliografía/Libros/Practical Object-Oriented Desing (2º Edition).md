@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[Sandy Metz]]'
+editorial: Addison-Wesley
+titulo: Practical Object-Oriented Desing (2º Edition)
+libro: true
+---
 - [[ARTICLES/escritas/Una estrategia de testing para un desarrollo productivo y eficaz]]
 - [[Notas/La programación orientada a objetos trata sobre manejo o gestión de dependencias]]
 - [[Notas/El diseño de software es un proceso de descubrimiento progresivo por medio de un feedback loop. Este debe ser oportuno e incremental]]

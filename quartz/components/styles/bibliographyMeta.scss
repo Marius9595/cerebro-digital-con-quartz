@@ -1,0 +1,27 @@
+.bibliography-meta {
+  margin: 0.5rem 0 1rem 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  background: var(--light);
+  font-size: 0.95rem;
+}
+
+.bibliography-meta h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.bibliography-meta .meta-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 0.75rem;
+}
+
+.bibliography-meta .label {
+  color: var(--darkgray);
+}
+
+.bibliography-meta .value a {
+  text-decoration: underline;
+}

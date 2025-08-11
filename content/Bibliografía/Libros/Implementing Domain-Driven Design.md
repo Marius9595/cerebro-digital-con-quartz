@@ -1,3 +1,10 @@
+---
+autores:
+  - '[[Vaughn Vernon]]'
+editorial: Pearson Education
+titulo: Implementing Domain-Driven Design
+libro: true
+---
 - [[Notas/Subdomino de soporte]]
 - [[Notas/Subdominio genérico]]
 - [[Notas/Espacio del problema (DDD)]]
