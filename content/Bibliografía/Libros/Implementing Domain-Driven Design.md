@@ -5,37 +5,11 @@ editorial: Pearson Education
 titulo: Implementing Domain-Driven Design
 libro: true
 ---
-- [[Notas/Subdomino de soporte]]
-- [[Notas/Subdominio genérico]]
-- [[Notas/Espacio del problema (DDD)]]
-- [[Notas/Espacio de solución (DDD)]]
-- [[Notas/La trampa de crear un modelo inclusivo, que intenta abarcar todo]]
-- [[Notas/Bounded Context]]
-- [[Notas/Un Bounded Context solo debe ser trabajado por un equipo]]
-- [[Notas/Un Bounded Context debe ser tan grande como sea neceario para expresar completamente su lenguaje ubicuo]]
-- [[Notas/Lo deseable es una relación 1-1 entre subdominos y bounded context]]
-- [[Notas/Una manera de nombrar un Bounded  Context es siguiendo la forma de `NombreDelModeloCentral Context`]]
-- [[Notas/DDD no depende de una arquitectura o patrón de arquitectura concreto, la elección de estas deben estar orientadas solo a satisface los requerimientos de calidad de software y estas no pueden ser determinadas sin los requisitos funcionales]]
-- [[Notas/La arquitectura hexagonal permite desarrollar todo el modelo de aplicación y dominio usando implementaciones fake de las interfaces de dominio]]
-- [[Notas/La arquitectura hexagonal es una base sólida para respaldar todas y cada una de los posibles patrones arquitectónicos disponibles]]
-- [[Notas/RESTful HTTP  y DDD]]
-- [[Notas/Entidad (DDD)]]
-- [[Notas/Permitir a los usuarios proveer la identidad]]
-- [[Notas/Generar la identidad en la aplicación]]
-- [[Notas/Delegar la generación de la identidad en el sistema de persistencia]]
-- [[Notas/Delegar a otro Bounded Context la tarea de generar la identidad]]
-- [[Notas/Impacto del momento en el que se produce una identidad (DDD)]]
-- [[Notas/Estrategias para crear identificadores de las entidades]]
-- [[Notas/Surrogamiento del identidad]]
-- [[Notas/Domino central]]
-- [[Notas/El uso de una interfaz de uso de proposito general permite evitar implementar más interfaces de las necesarias en una clase]]
-- [[Notas/Los roles de una clase se determinan por medio de las interfaces que implementan]]
-- [[Notas/Los setters públicos en sí no son un problema, la cuestión es si su uso genera ambigüedad o si es necesario el uso de multiples de estos para resolver una única petición]]
-- [[Notas/Pistas para identificar una entidad un modelado en DDD]]
+
 
 <!-- backlinks:start -->
 
-## Backlinks
+## Notas
 
 - [[Notas/Bounded Context]]
 - [[Notas/DDD no depende de una arquitectura o patrón de arquitectura concreto, la elección de estas deben estar orientadas solo a satisface los requerimientos de calidad de software y estas no pueden ser determinadas sin los requisitos funcionales]]

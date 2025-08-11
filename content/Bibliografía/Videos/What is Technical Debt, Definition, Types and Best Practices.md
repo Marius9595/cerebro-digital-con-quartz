@@ -4,11 +4,11 @@ autores:
 url: 'https://www.youtube.com/watch?v=wRwa02Vac1U'
 video: true
 ---
-- [[Notas/Deuda técnica ignorable]]
+
 
 <!-- backlinks:start -->
 
-## Backlinks
+## Notas
 
 - [[Notas/Deuda técnica ignorable]]
 

@@ -4,10 +4,10 @@ autores:
 editorial: The Pragmatic Programmers
 libro: true
 ---
-_Sin backlinks_
-
 <!-- backlinks:start -->
 
-_Sin backlinks_
+## Notas
+
+_Sin notas_
 
 <!-- backlinks:end -->

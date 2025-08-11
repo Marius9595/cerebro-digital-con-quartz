@@ -3,40 +3,10 @@ plataforma: '[[Hugging Face]]'
 url: 'https://huggingface.co/learn/agents-course/unit0/introduction'
 curso: true
 ---
-- [[Notas/Agente IA]]
-- [[Notas/Modelo de Lenguaje Grande]]
-- [[Notas/Tipos de Transformers]]
-- [[Notas/Token]]
-- [[Notas/Tokens especiales]]
-- [[Notas/Proceso de predicción del siguiente token]]
-- [[Notas/Algoritmo de Atención es el proceso clave de la arquitectura Transforme para identificar las palabras más relevantes en el proceso de predicción del siguiente token]]
-- [[Notas/Entrenamiento de un LLM]]
-- [[Notas/Plantillas de chat]]
-- [[Notas/System Prompt]]
-- [[Notas/Modelo base]]
-- [[Notas/Modelo de instrucción]]
-- [[Notas/Plantillas de chat en acción]]
-- [[Notas/Herramienta de un Agente IA]]
-- [[Notas/Uso de las herramientas por parte de los Agentes IA]]
-- [[Notas/Ciclo Pensamiento-Acción-Observación]]
-- [[Notas/Pensamientos (Agente IA)]]
-- [[Notas/Enfoque Re-Act]]
-- [[Notas/Acciones (Agente IA)]]
-- [[Notas/Enfoque de Detener y Analizar]]
-- [[Notas/Agente de Código]]
-- [[Notas/Observación (Agente IA)]]
-- [[Notas/Sistemas multi-agente]]
-- [[Notas/Sistemas RAG con Agentes]]
-- [[Notas/Agentes de Visión]]
-- [[Notas/Enfoque de proporcionar imágenes al inicio de un Agente de Visión]]
-- [[Notas/Enfoque de proporcionar imágenes con Recuperación Dinámica]]
-- [[Notas/Fine-Tuning de un LLM para llamar funciones]]
-- [[Notas/Observabilidad en Agentes IA]]
-- [[Notas/Evaluación de Agentes de IA]]
 
 <!-- backlinks:start -->
 
-## Backlinks
+## Notas
 
 - [[Notas/Acciones (Agente IA)]]
 - [[Notas/Agente de Código]]

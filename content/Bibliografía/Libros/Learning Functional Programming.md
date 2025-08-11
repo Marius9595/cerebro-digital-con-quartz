@@ -6,6 +6,11 @@ idioma: inglés
 titulo: Learning Functional Programming
 libro: true
 ---
+
+<!-- backlinks:start -->
+
+## Notas
+
 - [[Notas/Funciones como objetos de primera clase]]
 - [[Notas/Función anónima]]
 - [[Notas/Función sobreyectiva]]
@@ -21,10 +26,6 @@ libro: true
 - [[Notas/Evaluación perezosa]]
 - [[Notas/Programación funcional]]
 - [[.trash/Funciones de orden superior]]
-
-<!-- backlinks:start -->
-
-## Backlinks
 
 - [[.trash/Funciones de orden superior]]
 - [[Notas/Codominio de una función]]

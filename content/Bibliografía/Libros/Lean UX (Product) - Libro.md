@@ -5,11 +5,10 @@ autores:
 editorial: O' Reilly
 libro: true
 ---
-_Sin backlinks_
 
 <!-- backlinks:start -->
 
-## Backlinks
+## Notas
 
 - [[Notas/Bases de Lean UX (Product)]]
 - [[Notas/Ciclos cortos de trabajo ventaja competitiva]]
