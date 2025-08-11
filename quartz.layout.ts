@@ -25,20 +25,32 @@ export const defaultContentPageLayout: PageLayout = {
     // Backlink a la fuente bibliográfica (usa el frontmatter original del vault)
     Component.ConditionalRender({
       component: Component.FrontmatterProps({
-        fields: ["libro", "curso", "video", "charla", "articulo"],
+        fields: [
+          "fuente", "libro", "curso", "video", "charla", "articulo",
+          "capitulo", "paginas", "bloque", "orden", "minutos"
+        ],
         labels: {
+          fuente: "Fuente",
           libro: "Fuente",
           curso: "Fuente",
           video: "Fuente",
           charla: "Fuente",
           articulo: "Fuente",
+          capitulo: "Capítulo",
+          paginas: "Páginas",
+          bloque: "Bloque",
+          orden: "Orden",
+          minutos: "Minutos"
         },
         inline: true,
       }),
-      // Solo mostrar cuando estos campos sean enlaces/texto (no flags booleanos)
+      // Mostrar si alguno de estos campos está presente y es string o array no vacío
       condition: (page) => {
         const fm = (page.fileData.frontmatter ?? {}) as Record<string, unknown>
-        const keys = ["libro", "curso", "video", "charla", "articulo"]
+        const keys = [
+          "fuente", "libro", "curso", "video", "charla", "articulo",
+          "capitulo", "paginas", "bloque", "orden", "minutos"
+        ]
         return keys.some((k) => {
           const v = fm[k]
           return typeof v === "string" || (Array.isArray(v) && v.length > 0)
