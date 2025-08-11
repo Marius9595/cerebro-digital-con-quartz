@@ -2,7 +2,6 @@
 autores:
   - '[[Sandy Metz]]'
 editorial: Addison-Wesley
-titulo: Practical Object-Oriented Desing (2º Edition)
 libro: true
 ---
 

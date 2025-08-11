@@ -4,7 +4,6 @@ autores:
   - '[[Nat Pryce]]'
 editorial: Addison-Wesley
 idioma: inglés
-titulo: 'Growing Object-Oriented Software, Guided by tests'
 libro: true
 ---
 

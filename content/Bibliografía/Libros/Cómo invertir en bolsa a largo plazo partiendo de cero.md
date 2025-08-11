@@ -2,7 +2,6 @@
 autores:
   - '[[Gregorio Hernández Jiménez]]'
 editorial: '2012'
-titulo: Cómo invertir en bolsa a largo plazo partiendo de cero
 libro: true
 ---
 

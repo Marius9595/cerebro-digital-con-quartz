@@ -3,7 +3,6 @@ autores:
   - '[[Jack Widman]]'
 editorial: O' Reilly
 idioma: inglés
-titulo: Learning Functional Programming
 libro: true
 ---
 

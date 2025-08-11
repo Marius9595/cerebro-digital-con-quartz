@@ -2,7 +2,6 @@
 autores:
   - '[[Vaughn Vernon]]'
 editorial: Pearson Education
-titulo: Implementing Domain-Driven Design
 libro: true
 ---
 

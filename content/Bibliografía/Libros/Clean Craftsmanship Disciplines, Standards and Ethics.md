@@ -3,7 +3,6 @@ autores:
   - '[[Robert C. Martin]]'
 editorial: Addison-Wesley
 idioma: inglés
-titulo: 'Clean Craftsmanship Disciplines, Standards and Ethics'
 libro: true
 ---
 
