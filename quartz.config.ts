@@ -13,7 +13,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+  provider: "google",
+  tagId: "G-NVF1P9DHTH",
     },
     locale: "es-ES",
   baseUrl: "cerebro-digital.mario-pinto-miranda.dev",
