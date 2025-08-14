@@ -73,6 +73,54 @@ function getAllMarkdownFiles(dir) {
   return out
 }
 
+function sanitizeFrontmatter(raw) {
+  if (!raw) return raw
+  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/m)
+  if (!m) return raw
+  const body = m[1]
+  const lines = body.split(/\r?\n/)
+  let baseIndent = Infinity
+  const keyLineRx = /^(\s*)([^\s#][^:]*):/
+  for (const ln of lines) {
+    const mm = ln.match(keyLineRx)
+    if (mm) {
+      const indent = mm[1].length
+      if (indent < baseIndent) baseIndent = indent
+    }
+  }
+  if (baseIndent === Infinity) return raw
+  const seen = new Set()
+  const outLines = []
+  for (let i = 0; i < lines.length; i++) {
+    const ln = lines[i]
+    const mm = ln.match(keyLineRx)
+    if (mm && mm[1].length === baseIndent) {
+      const key = mm[2].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      if (seen.has(key)) {
+        const skipIndent = mm[1].length
+        i++
+        while (i < lines.length) {
+          const nextLine = lines[i]
+          const nextIndent = nextLine.match(/^(\s*)/)[1].length
+          if (nextLine.trim() === '') { i++; continue }
+          if (nextIndent > skipIndent) { i++; continue }
+          break
+        }
+        i--
+        continue
+      }
+      seen.add(key)
+      outLines.push(ln)
+    } else {
+      outLines.push(ln)
+    }
+  }
+  const newBody = outLines.join('\n')
+  if (newBody === body) return raw
+  const replaced = raw.replace(body, newBody)
+  return replaced
+}
+
 let DEST_FILES = getAllMarkdownFiles(DEST_BIB_DIR)
 let SRC_FILES = getAllMarkdownFiles(scanBase)
 

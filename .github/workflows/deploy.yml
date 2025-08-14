@@ -47,10 +47,13 @@ jobs:
           echo "Files changed by scripts:"
           git status --porcelain || true
           git --no-pager diff --name-only || true
-      - name: Generate Bibliography backlinks section (non-destructive)
-        run: node scripts/generate-bibliography-backlinks.js
       - name: Build Quartz
         run: npx quartz build
+      - name: List public directory (for CI debug)
+        run: |
+          echo "Public dir listing:"
+          ls -la public || true
+          ls -R public | sed -n '1,200p' || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -61,6 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      # set the environment URL to the pages deployment URL
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
