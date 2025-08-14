@@ -129,6 +129,30 @@ function upsertBacklinksSection(rawContent, backlinksSection) {
   return `${rawContent}${needsNL}\n${backlinksSection}\n`
 }
 
+// Quitar la primera sección titulada "Notas" (si existe) antes de insertar backlinks.
+// Busca un encabezado Markdown (#{1,6} Notas) o una línea solitaria "Notas" y elimina
+// todo su contenido hasta el siguiente encabezado o el final del archivo.
+function stripOriginalNotasSection(content) {
+  if (!content) return content
+  // Si ya contiene los marcadores de backlinks, no tocar esa región
+  if (content.includes(START) || content.includes(END)) return content
+
+  // Regex para capturar una sección que empieza con un heading `#.. Notas` o una línea "Notas"
+  const rx = new RegExp(
+    "(^|\\r?\\n)(?:#{1,6}\\s*Notas\\s*|Notas\\s*\\r?\\n)([\\s\\S]*?)(?=\\r?\\n#{1,6}\\s|$)",
+    'i'
+  )
+  const match = content.match(rx)
+  if (!match) return content
+
+  // Remove the matched region and tidy up extra blank lines
+  const startIndex = match.index + (match[1] ? match[1].length : 0)
+  const before = content.slice(0, startIndex)
+  const after = content.slice(startIndex + match[0].length)
+  const combined = `${before}\n${after}`.replace(/\n{3,}/g, '\n\n')
+  return combined.trimStart()
+}
+
 function processBibliography() {
   if (!fs.existsSync(BIBLIOGRAPHY_DIR)) {
     console.warn(`No existe carpeta de Bibliografía: ${BIBLIOGRAPHY_DIR}`)
@@ -156,9 +180,12 @@ function processBibliography() {
       console.warn(`No se pudo parsear frontmatter de ${bibFile}, se omite: ${err.message}`)
       continue
     }
-    const backlinks = getBacklinksFor(bibFile, allFiles)
-    const section = renderBacklinksSection(backlinks)
-    const updatedContent = upsertBacklinksSection(parsed.content || '', section)
+  const backlinks = getBacklinksFor(bibFile, allFiles)
+  const section = renderBacklinksSection(backlinks)
+  // Si no hay marcadores existentes, eliminar una sección "Notas" previa
+  const baseContent = parsed.content || ''
+  const contentToUse = baseContent.includes(START) ? baseContent : stripOriginalNotasSection(baseContent)
+  const updatedContent = upsertBacklinksSection(contentToUse, section)
     const out = matter.stringify(updatedContent, parsed.data || {})
     // Escribir solo si hay cambios para minimizar ruido en git
     if (out !== raw) {
