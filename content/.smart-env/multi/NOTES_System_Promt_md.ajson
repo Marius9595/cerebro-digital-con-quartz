@@ -1,3 +1,0 @@
-
-"smart_sources:NOTES/System Promt.md": {"path":"NOTES/System Promt.md","last_embed":{"hash":null},"embeddings":{},"last_read":{"hash":"1fc3i5m","at":1752946577762},"class_name":"SmartSource","last_import":{"mtime":1752946554742,"size":346,"at":1752946577762,"hash":"1fc3i5m"},"blocks":{"#---frontmatter---":[1,9],"##¿Qué es?":[10,13],"##¿Qué es?#{1}":[12,13]},"outlinks":[{"title":"Agents Course","target":"Agents Course","line":2}],"metadata":{"curso":"[[Agents Course]]","bloque":"Mensajes y tokens especiales","orden":"2","tags":null,"num_veces_leida":0,"aliases":["Mensaje del sistema"]}},
-"smart_sources:NOTES/System Promt.md": null,

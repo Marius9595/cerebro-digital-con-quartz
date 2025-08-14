@@ -1,1 +1,0 @@
-Una idea que desarrolla Hernan en el último episodio sobre arquitectura. La idea es hacer algo similar a lo que hace pero con referencias

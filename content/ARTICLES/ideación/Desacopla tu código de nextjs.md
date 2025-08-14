@@ -1,1 +1,0 @@
-> la idea es que solo uses el router pero de resto separar en carpetas FE y BE
