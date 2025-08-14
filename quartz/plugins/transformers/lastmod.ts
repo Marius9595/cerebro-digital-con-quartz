@@ -45,20 +45,14 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
     markdownPlugins(ctx) {
       return [
         () => {
-          let repo: Repository | undefined = undefined
-          let repositoryWorkdir: string
+          // We'll lazily discover the git repo per file to support submodules
+          let rootRepo: Repository | undefined
+          let rootWorkdir = ctx.argv.directory
           if (opts.priority.includes("git")) {
             try {
-              repo = Repository.discover(ctx.argv.directory)
-              repositoryWorkdir = repo.workdir() ?? ctx.argv.directory
-            } catch (e) {
-              console.log(
-                styleText(
-                  "yellow",
-                  `\nWarning: couldn't find git repository for ${ctx.argv.directory}`,
-                ),
-              )
-            }
+              rootRepo = Repository.discover(ctx.argv.directory)
+              rootWorkdir = rootRepo.workdir() ?? ctx.argv.directory
+            } catch {}
           }
 
           return async (_tree, file) => {
@@ -77,10 +71,23 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 created ||= file.data.frontmatter.created as MaybeDate
                 modified ||= file.data.frontmatter.modified as MaybeDate
                 published ||= file.data.frontmatter.published as MaybeDate
-              } else if (source === "git" && repo) {
+              } else if (source === "git") {
                 try {
-                  const relativePath = path.relative(repositoryWorkdir, fullFp)
-                  modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
+                  // Discover repo for this specific file (works for submodules)
+                  let repoForFile = rootRepo
+                  let workdir = rootWorkdir
+                  try {
+                    const discovered = Repository.discover(path.dirname(fullFp))
+                    if (discovered) {
+                      repoForFile = discovered
+                      workdir = discovered.workdir() ?? workdir
+                    }
+                  } catch {}
+
+                  if (repoForFile) {
+                    const relativePath = path.relative(workdir, fullFp)
+                    modified ||= await repoForFile.getFileLatestModifiedDateAsync(relativePath)
+                  }
                 } catch {
                   console.log(
                     styleText(

@@ -16,3 +16,14 @@ Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility 
     <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
   </a>
 </p>
+
+## Working with content as a submodule
+
+- Content lives in `content/` and is a Git submodule pointing to your vault repository.
+- Initialize/fetch it before building:
+  - `npm run submodule:init` (first time)
+  - `npm run submodule:update` (pull latest vault changes)
+- Local dev server:
+  - `npm run docs` (auto-runs submodule init, then serves at http://localhost:8080)
+
+In CI (GitHub Actions), ensure submodules are checked out (with `submodules: recursive`) so Quartz can read your notes.
