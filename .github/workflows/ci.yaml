@@ -4,8 +4,10 @@ on:
   pull_request:
     branches:
       - v4
+      - main
   push:
     branches:
+      - main
       - v4
   workflow_dispatch:
 
