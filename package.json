@@ -16,6 +16,8 @@
   "submodule:init": "git submodule update --init --recursive",
   "submodule:update": "git submodule update --remote --merge --recursive",
   "docs": "npm run submodule:init && npx quartz build --serve -d docs",
+  "site:build": "npm run submodule:init && npx quartz build",
+  "site:serve": "npm run submodule:init && npx quartz build --serve",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
