@@ -92,14 +92,25 @@ function processBibliography() {
   for (const bibFile of bibFiles) {
     let raw = ''
     try { raw = fs.readFileSync(bibFile, 'utf8') } catch { continue }
-    const parsed = matter(raw)
+    let parsed
+    try {
+      parsed = matter(raw)
+    } catch (err) {
+      console.warn(`No se pudo parsear frontmatter de ${bibFile}, se omite: ${err.message}`)
+      continue
+    }
     const backlinks = getBacklinksFor(bibFile, allFiles)
     const section = renderBacklinksSection(backlinks)
     const updatedContent = upsertBacklinksSection(parsed.content || '', section)
     const out = matter.stringify(updatedContent, parsed.data || {})
-    fs.writeFileSync(bibFile, out, 'utf8')
-    const name = path.basename(bibFile, '.md')
-    console.log(`Actualizado: ${name} (${backlinks.length} backlinks)`)    
+    // Escribir solo si hay cambios para minimizar ruido en git
+    if (out !== raw) {
+      fs.writeFileSync(bibFile, out, 'utf8')
+      const name = path.basename(bibFile, '.md')
+      console.log(`Actualizado: ${name} (${backlinks.length} backlinks)`)
+    } else {
+      if (process.env.DEBUG) console.log(`Sin cambios: ${bibFile}`)
+    }
   }
 }
 

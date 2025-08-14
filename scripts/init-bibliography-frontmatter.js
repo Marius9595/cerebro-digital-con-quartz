@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import matter from 'gray-matter'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -9,31 +10,29 @@ const ROOT = path.join(__dirname, '../content/Bibliografía')
 
 function getAllMarkdownFiles(dir) {
   let results = []
-  const list = fs.readdirSync(dir)
-  list.forEach((file) => {
+  if (!fs.existsSync(dir)) return results
+  let list = []
+  try { list = fs.readdirSync(dir) } catch { return results }
+  for (const file of list) {
     const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
+    let stat
+    try { stat = fs.statSync(filePath) } catch { continue }
     if (stat && stat.isDirectory()) {
       results = results.concat(getAllMarkdownFiles(filePath))
-    } else if (file.endsWith('.md')) {
+    } else if (file.toLowerCase().endsWith('.md')) {
       results.push(filePath)
     }
-  })
+  }
   return results
 }
 
 function ensureFrontmatter(md, typeFlag) {
-  const hasYaml = /^---[\s\S]*?---\s*/.test(md)
-  const typeLine = `${typeFlag}: true\n`
-  if (!hasYaml) {
-    return `---\n${typeLine}---\n\n${md}`
-  }
-  // already has YAML; inject type if missing
-  return md.replace(/^---([\s\S]*?)---/, (m, body) => {
-    if (new RegExp(`(^|\n)${typeFlag}:\s*true(\n|$)`).test(body)) return m
-    const updated = body.trimEnd() + `\n${typeLine}`
-    return `---${updated}---`
-  })
+  // Use gray-matter to parse and modify frontmatter safely (avoids duplicated YAML keys)
+  const parsed = matter(md || '')
+  const data = parsed.data || {}
+  if (data[typeFlag]) return md
+  data[typeFlag] = true
+  return matter.stringify(parsed.content || '', data)
 }
 
 function main() {

@@ -27,7 +27,8 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for git info
           submodules: recursive # Pull submodules
-          token: ${{ secrets.SUBMODULES_TOKEN }} # PAT with read access to submodule repo
+          # Allow using a dedicated PAT in SUBMODULES_TOKEN, but fall back to the default GITHUB_TOKEN
+          token: ${{ secrets.SUBMODULES_TOKEN || secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -37,6 +38,15 @@ jobs:
           git submodule update --init --remote --recursive
       - name: Install Dependencies
         run: npm ci
+      - name: Init bibliography frontmatter
+        run: node scripts/init-bibliography-frontmatter.js
+      - name: Generate Bibliography backlinks section (non-destructive)
+        run: node scripts/generate-bibliography-backlinks.js
+      - name: Show changed files (for CI debug)
+        run: |
+          echo "Files changed by scripts:"
+          git status --porcelain || true
+          git --no-pager diff --name-only || true
       - name: Generate Bibliography backlinks section (non-destructive)
         run: node scripts/generate-bibliography-backlinks.js
       - name: Build Quartz
