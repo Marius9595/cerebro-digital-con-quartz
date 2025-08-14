@@ -27,6 +27,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for git info
           submodules: recursive # Pull submodules
+          token: ${{ secrets.SUBMODULES_TOKEN }} # PAT with read access to submodule repo
       - uses: actions/setup-node@v4
         with:
           node-version: 22
