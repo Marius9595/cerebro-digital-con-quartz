@@ -29,7 +29,7 @@ jobs:
           submodules: recursive # Pull submodules
           # Allow using a dedicated PAT in SUBMODULES_TOKEN, but fall back to the default GITHUB_TOKEN
           token: ${{ secrets.SUBMODULES_TOKEN || secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Update submodules to latest tracked branches
