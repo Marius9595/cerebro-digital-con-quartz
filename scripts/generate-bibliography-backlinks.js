@@ -105,18 +105,80 @@ function getBacklinksFor(bibFile, allFiles) {
     try { content = fs.readFileSync(file, 'utf8') } catch { continue }
     if (patterns.some(rx => rx.test(content))) {
       const rel = path.relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.md$/, '')
-      backlinks.push(`[[${rel}]]`)
+      
+      // Extraer frontmatter para obtener capitulo/bloque
+      let parsed
+      try {
+        parsed = matter(content)
+      } catch {
+        // Si no se puede parsear, añadir sin metadata
+        backlinks.push({ link: `[[${rel}]]`, chapter: null, block: null })
+        continue
+      }
+      
+      const data = parsed.data || {}
+      backlinks.push({
+        link: `[[${rel}]]`,
+        chapter: data.capitulo || data.capítulo || null,
+        block: data.bloque || null
+      })
     }
   }
   // Orden estable para evitar ruido en git
-  return backlinks.sort((a, b) => a.localeCompare(b, 'es'))
+  return backlinks.sort((a, b) => a.link.localeCompare(b.link, 'es'))
 }
 
-function renderBacklinksSection(backlinks) {
-  const body = backlinks.length
-    ? `## Notas\n\n${backlinks.map(b => `- ${b}`).join('\n')}`
-    : '_Sin notas_'
-  return `${START}\n\n${body}\n\n${END}`
+function renderBacklinksSection(backlinks, bibType) {
+  if (!backlinks.length) {
+    return `${START}\n\n_Sin notas_\n\n${END}`
+  }
+
+  // Determinar si debemos agrupar según el tipo de bibliografía
+  const shouldGroup = bibType === 'LIBRO' || bibType === 'CURSO'
+  
+  if (!shouldGroup) {
+    // Para videos y otros: renderizar lista simple
+    const body = `## Notas\n\n${backlinks.map(b => `- ${b.link}`).join('\n')}`
+    return `${START}\n\n${body}\n\n${END}`
+  }
+
+  // Para libros y cursos: agrupar por capítulo/bloque
+  const groupKey = bibType === 'LIBRO' ? 'chapter' : 'block'
+  const grouped = new Map()
+  const ungrouped = []
+
+  for (const item of backlinks) {
+    const key = item[groupKey]
+    if (key) {
+      if (!grouped.has(key)) {
+        grouped.set(key, [])
+      }
+      grouped.get(key).push(item.link)
+    } else {
+      ungrouped.push(item.link)
+    }
+  }
+
+  // Ordenar los grupos por clave
+  const sortedGroups = Array.from(grouped.entries()).sort((a, b) => 
+    a[0].localeCompare(b[0], 'es')
+  )
+
+  let body = '## Notas\n\n'
+  
+  // Renderizar grupos
+  for (const [groupName, links] of sortedGroups) {
+    body += `### ${groupName}\n\n`
+    body += links.map(link => `- ${link}`).join('\n') + '\n\n'
+  }
+
+  // Renderizar notas sin grupo al final
+  if (ungrouped.length > 0) {
+    body += `### Sin ${bibType === 'LIBRO' ? 'capítulo' : 'bloque'}\n\n`
+    body += ungrouped.map(link => `- ${link}`).join('\n') + '\n'
+  }
+
+  return `${START}\n\n${body.trim()}\n\n${END}`
 }
 
 function upsertBacklinksSection(rawContent, backlinksSection) {
@@ -181,7 +243,11 @@ function processBibliography() {
       continue
     }
   const backlinks = getBacklinksFor(bibFile, allFiles)
-  const section = renderBacklinksSection(backlinks)
+  
+  // Obtener el tipo de bibliografía del frontmatter
+  const bibType = (parsed.data && parsed.data.type) || null
+  
+  const section = renderBacklinksSection(backlinks, bibType)
   // Si no hay marcadores existentes, eliminar una sección "Notas" previa
   const baseContent = parsed.content || ''
   const contentToUse = baseContent.includes(START) ? baseContent : stripOriginalNotasSection(baseContent)
