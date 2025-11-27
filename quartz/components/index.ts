@@ -25,6 +25,7 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import FrontmatterProps from "./FrontmatterProps"
 import BibliographyMeta from "./BibliographyMeta"
+import CookieConsent from "./CookieConsent"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   ConditionalRender,
   FrontmatterProps,
   BibliographyMeta,
+  CookieConsent,
 }
